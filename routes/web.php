@@ -19,7 +19,21 @@ use Illuminate\Support\Facades\Route;
 // Route::get('form','AuthController@form');
 // Route::post('saveform','AuthController@save');
 
-Route::get('/','homeController@index');
 Route::get('/datatable',function(){
     return view('table/datatable');
 });
+Route::get('/','homeController@index');
+
+Route::get('/pertanyaan','pertanyaanController@index');
+Route::post('/pertanyaan','pertanyaanController@store');
+Route::post('/pertanyaan/{id}','pertanyaanController@store');
+Route::get('/pertanyaan/delete/{id}','pertanyaanController@destroy');
+Route::get('/pertanyaan/create','pertanyaanController@create');
+Route::get('/pertanyaan/{id}/edit','pertanyaanController@create');
+
+Route::get('/answer','answerController@index');
+Route::post('/answer','answerController@store');
+Route::get('/answer/create/{id}','answerController@create');
+
+Route::get('/modal','pertanyaanController@show');
+
